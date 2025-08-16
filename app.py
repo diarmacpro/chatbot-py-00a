@@ -1,9 +1,9 @@
 import streamlit as st
 from services.gemini_client import send_to_gemini_with_key
 from utils.session_manager import init_session, add_message, load_chat, save_chat
+from utils.prompt_builder import build_gemini_prompt
 import uuid
 from pathlib import Path
-from utils.prompt_builder import build_gemini_prompt
 
 st.set_page_config(page_title="Chatbot Gemini", page_icon="🤖")
 st.title("🤖 Chatbot Gemini")
