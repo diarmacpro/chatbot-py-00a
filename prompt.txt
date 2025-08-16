@@ -1,0 +1,44 @@
+saya ingin membuat app di streamlit,
+untuk keperluan chatbot, buatkan saya struktur dan isinya yang harus saya isi pada repository, yang fiturnya adalah :
+* user mengirim chat,
+* sistem meneruskan ke gemini
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent" \
+  -H 'Content-Type: application/json' \
+  -H 'X-goog-api-key: AIzaSyAPy5npNkxcLckuyq-b2fx_UBf_gvkC9jo' \
+  -X POST \
+  -d '{
+    "contents": [
+      {
+        "parts": [
+          {
+            "text": "..."
+          }
+        ]
+      }
+    ]
+  }'
+
+* repsonse dari gemini di teruskan ke user kembali sebagai balasan
+{
+    "candidates": [{
+        "content": {
+            "parts": [{
+                "text": "..."
+            }],
+            "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+    }],
+    "usageMetadata": {
+        "promptTokenCount": ...,
+        "candidatesTokenCount": ...,
+        "totalTokenCount": ...,
+        "promptTokensDetails": [{
+            "modality": "TEXT",
+            "tokenCount": ...
+        }]
+    },
+    "modelVersion": "gemini-2.5-flash-lite",
+    "responseId": "..."
+}
