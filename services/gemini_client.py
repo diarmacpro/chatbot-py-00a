@@ -1,19 +1,14 @@
-import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()  # baca .env di sini
 
 API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent"
-API_KEY = os.getenv("GEMINI_API_KEY")
 
-def send_to_gemini(user_message: str) -> str:
-    if not API_KEY:
+def send_to_gemini_with_key(user_message: str, api_key: str) -> str:
+    if not api_key:
         return "Error: API_KEY tidak ditemukan"
 
     headers = {
         "Content-Type": "application/json",
-        "X-goog-api-key": API_KEY
+        "X-goog-api-key": api_key
     }
     payload = {
         "contents": [
